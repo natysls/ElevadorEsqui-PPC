@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ElevadorEsqui-PPC.iml" filepath="$PROJECT_DIR$/ElevadorEsqui-PPC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EsquiPPC.iml" filepath="$PROJECT_DIR$/EsquiPPC.iml" />
     </modules>
   </component>
 </project>
