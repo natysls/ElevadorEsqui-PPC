@@ -1,5 +1,5 @@
 public class Esquiador {
-   private String nome;
+    private String nome;
 
     public Esquiador(String nome) {
         this.nome = nome;
