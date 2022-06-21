@@ -1,7 +1,8 @@
 import java.util.ArrayList;
-import java.util.Map;
+import java.util.*;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.stream.Collectors;
 
 public class Main {
     static ArrayList<Esquiador> LS = new ArrayList<>(); // Fila de uma pessoa no lado esquerdo
@@ -15,30 +16,45 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("inicio");
 
-        Timer timerEsquiador = new Timer();
-        timerEsquiador.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                try {
-                    inserirEsquiador();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }, 1000, 1000);
+        try{
+            for(int i = 1; i<=120; i++){
+                
+                inserirEsquiador(i);
+                Thread.sleep(1000);
 
-        Timer timerElevador = new Timer();
-        timerElevador.scheduleAtFixedRate(new TimerTask() {
-            public void run() {
-                try {
-                    elevadorPassando();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                elevadorPassando();
+                Thread.sleep(5000);
+        
             }
-        }, 5000, 5000);
+        }catch(InterruptedException e){
+            e.printStackTrace();
+        }
+
+        // Timer timerEsquiador = new Timer();
+        // timerEsquiador.scheduleAtFixedRate(new TimerTask() {
+        //     public void run() {
+        //         try {
+        //             inserirEsquiador();
+        //         } catch (Exception e) {
+        //             e.printStackTrace();
+        //         }
+        //     }
+        // }, 1000, 1000);
+
+        // Timer timerElevador = new Timer();
+        // timerElevador.scheduleAtFixedRate(new TimerTask() {
+        //     public void run() {
+        //         try {
+        //             elevadorPassando();
+        //         } catch (Exception e) {
+        //             e.printStackTrace();
+        //         }
+        //     }
+        // }, 5000, 5000);
+        
     }
 
-    private static void inserirEsquiador() {
+    private static void inserirEsquiador(int atualEsquiador) {
         boolean LsTwiceLessThanLT = LS.size() < 2 * LT.size();
         boolean LsTwiceLessThanRT = LS.size() < 2 * RT.size();
         boolean LsLessThanRS = LS.size() < RS.size();
@@ -47,7 +63,7 @@ public class Main {
         boolean RsTwiceLessThanRT = RS.size() < 2 * RT.size();
         boolean RsLessThanLS = RS.size() <= LS.size();
 
-        Esquiador esquiador = new Esquiador("esquiador" + Math.round((Math.random() * 100)));
+        Esquiador esquiador = new Esquiador("esquiador " + atualEsquiador);
 
         if (LsTwiceLessThanLT && LsTwiceLessThanRT && LsLessThanRS) {
             LS.add(esquiador);
@@ -138,7 +154,8 @@ public class Main {
         }
         if (elevador.size() > 0) {
             String elevadorResult = String.join(" / ", elevador.stream()
-                    .map(e -> e.keySet().toArray()[0] + " - " + e.get(e.keySet().toArray()[0]).getNome()).toList());
+                    .map(e -> e.keySet().toArray()[0] + " - " + e.get(e.keySet().toArray()[0]).getNome())
+                    .collect(Collectors.toList()));
 
             System.out.println("Elevador passou: (" + elevadorResult + ")");
         }else{
