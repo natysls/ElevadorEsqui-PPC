@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Elevador {
 
@@ -89,7 +88,7 @@ public class Elevador {
     if (elevador.size() > 0) {
         String elevadorResult = String.join(" / ", elevador.stream()
                 .map(e -> e.keySet().toArray()[0] + " - " + e.get(e.keySet().toArray()[0]).getNome())
-                .collect(Collectors.toList()));
+                .toList());
 
         System.out.println("Elevador passou: (" + elevadorResult + ")");
 
