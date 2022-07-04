@@ -48,7 +48,12 @@ public class Esquiador {
 
     public static void acabaramEsquiadores(){
         String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
-        System.out.println("Acabaram os esquiadores " + sizes);
+        System.out.println("Não existe mais esquiadores para entrar " + sizes);
+    }
+
+    public static void esquiadoresQueSobraramNaFila(){
+        String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
+        System.out.println("Filas " + sizes);
     }
     
     public String getNome() {
