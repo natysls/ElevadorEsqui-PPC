@@ -16,6 +16,7 @@ public class Main {
                      while(flag) {
                          if (count == 120) {
                              Esquiador.acabaramEsquiadores();
+                             timerEsquiador.cancel();
                              break;
                          }
                          Esquiador.inserirEsquiador();
@@ -32,6 +33,11 @@ public class Main {
          timerElevador.scheduleAtFixedRate(new TimerTask() {
              public void run() {
                  try {
+                     if(Elevador.isParar()) {
+                         Esquiador.esquiadoresQueSobraramNaFila();
+                         timerElevador.cancel();
+                     }
+
                      Elevador.elevadorPassando();
                  } catch (Exception e) {
                      e.printStackTrace();
