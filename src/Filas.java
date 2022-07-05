@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Filas { //classe auxiliar
+public class Filas { // classe auxiliar
     
     static ArrayList<Esquiador> LS = new ArrayList<>(); // Fila de uma pessoa no lado esquerdo
     static ArrayList<Esquiador> LT = new ArrayList<>(); // Fila de uma tripla no lado esquerdo
