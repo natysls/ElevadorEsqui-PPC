@@ -103,17 +103,21 @@ public class Elevador {
                 .toList());
         roundSizeCount = roundSizeCount + elevador.size();
         passagensDoElevador++;
-        taxaDeAproveitamento = ((roundSizeCount/(4 * passagensDoElevador)) * 100);
+        taxaDeAproveitamento = ((roundSizeCount / (4 * passagensDoElevador)) * 100);
 
         String roundSizeCountRounded = String.format("%.0f", roundSizeCount);
         String passagensDoElevadorRounded = String.format("%.0f", passagensDoElevador);
-        String taxaDeAproveitamentoRounded = String.format("%.0f", taxaDeAproveitamento);
+        String taxaDeAproveitamentoRounded = String.format("%.2f", taxaDeAproveitamento);
 
-        System.out.println("Subiram: ("+ roundSizeCountRounded +")");
+        System.out.println("Entraram "+ roundSizeCountRounded +" esquiadores no elevador");
+
         System.out.println("Elevador passou: (" + elevadorResult + ")");
+
         System.out.println("Passagem do elevador de nº: " + passagensDoElevadorRounded + "");
-        System.out.println("A taxa de aproveitamento foi de: " + roundSizeCountRounded
-                + "/(4 * " + passagensDoElevadorRounded + ") * 100 = "+ taxaDeAproveitamentoRounded + "%.");
+        System.out.println("A taxa de aproveitamento foi de: ((" + roundSizeCountRounded
+                + " / (4 * " + passagensDoElevadorRounded + ")) * 100) = "+ taxaDeAproveitamentoRounded + "%.\n");
+
+        roundSizeCount = 0.0;
 
     } else {
         setParar(true);
