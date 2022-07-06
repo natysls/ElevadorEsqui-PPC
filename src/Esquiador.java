@@ -4,6 +4,7 @@ public class Esquiador {
     
     private String nome;
     static private ArrayList<Esquiador> listaEsquiadores = new ArrayList<>();
+    static long tempoEntrada;
 
     public Esquiador(String nome) {
         this.nome = nome;
@@ -24,21 +25,25 @@ public class Esquiador {
 
         if (LsTwiceLessThanLT && LsTwiceLessThanRT && LsLessThanRS) {
             Filas.LS.add(esquiador);
+            tempoEntrada = System.currentTimeMillis();
             String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
             System.out.println("O " + esquiador.getNome() + " entrou na fila LS " + sizes);
 
         } else if (RsTwiceLessThan && RsTwiceLessThanRT && RsLessThanLS) {
             Filas.RS.add(esquiador);
+            tempoEntrada = System.currentTimeMillis();
             String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
             System.out.println("O " + esquiador.getNome() + " entrou na fila RS " + sizes);
 
         } else if (Filas.LT.size() <= Filas.RT.size()) {
             Filas.LT.add(esquiador);
+            tempoEntrada = System.currentTimeMillis();
             String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
             System.out.println("O " + esquiador.getNome() + " entrou na fila LT " + sizes);
 
         } else {
             Filas.RT.add(esquiador);
+            tempoEntrada = System.currentTimeMillis();
             String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
             System.out.println("O " + esquiador.getNome() + " entrou na fila RT " + sizes);
 
@@ -55,7 +60,12 @@ public class Esquiador {
         String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
         System.out.println("Filas " + sizes);
     }
-    
+
+    public static long tempoEmFila() {
+        long tempoSaida = System.currentTimeMillis();
+        return tempoSaida - tempoEntrada;
+    }
+
     public String getNome() {
         return nome;
     }

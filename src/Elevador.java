@@ -12,7 +12,7 @@ public class Elevador {
     static double passagensDoElevador = 0.0;
     static double taxaDeAproveitamento = 0.0;
 
-    static int emptySpaces = 0;
+    static String tempoEmFila = "";
 
   public static void elevadorPassando() {
     ArrayList<Map<String, Esquiador>> elevador = new ArrayList<>();
@@ -29,21 +29,36 @@ public class Elevador {
             elevador.add(Map.of("LT", Filas.LT.remove(0)));
             elevador.add(Map.of("LT", Filas.LT.remove(0)));
 
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em LT: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
+
         } else { // vez da direita
             isLTturn = true;
             elevador.add(Map.of("RT", Filas.RT.remove(0)));
             elevador.add(Map.of("RT", Filas.RT.remove(0)));
             elevador.add(Map.of("RT", Filas.RT.remove(0)));
 
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em RT: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
         }
 
         if (isLSturn && LShasPerson) {
             isLSturn = false;
             elevador.add(Map.of("LS", Filas.LS.remove(0)));
 
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em LS: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
+
         } else if (RShasPerson) {
             elevador.add(Map.of("RS", Filas.RS.remove(0)));
             isLSturn = true;
+
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em RS: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
 
         }
 
@@ -53,13 +68,25 @@ public class Elevador {
         elevador.add(Map.of("LT", Filas.LT.remove(0)));
         elevador.add(Map.of("LT", Filas.LT.remove(0)));
 
+        tempoEmFila = tempoEmFila
+                + "\nTempo em fila de esquiador em LT: "
+                + Esquiador.tempoEmFila() + " milisegundos.";
+
         if (isLSturn && LShasPerson) {
             isLSturn = false;
             elevador.add(Map.of("LS", Filas.LS.remove(0)));
 
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em LS: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
+
         } else if (RShasPerson) {
             elevador.add(Map.of("RS", Filas.RS.remove(0)));
             isLSturn = true;
+
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em RS: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
 
         }
 
@@ -69,13 +96,25 @@ public class Elevador {
         elevador.add(Map.of("RT", Filas.RT.remove(0)));
         elevador.add(Map.of("RT", Filas.RT.remove(0)));
 
+        tempoEmFila = tempoEmFila
+                + "\nTempo em fila de esquiador em LT: "
+                + Esquiador.tempoEmFila() + " milisegundos.";
+
         if (isLSturn && LShasPerson) {
             isLSturn = false;
             elevador.add(Map.of("LS", Filas.LS.remove(0)));
 
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em LS: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
+
         } else if (RShasPerson) {
             elevador.add(Map.of("RS", Filas.RS.remove(0)));
             isLSturn = true;
+
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em RS: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
 
         }
 
@@ -85,6 +124,11 @@ public class Elevador {
         for (int i = 0; i < Filas.LS.size() && Filas.LS.size() > 0; i++) {
             elevador.add(Map.of("LS", Filas.LS.remove(0)));
             precisaRemover--;
+
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em LS: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
+
             if (precisaRemover == 0) break;
 
         }
@@ -92,6 +136,11 @@ public class Elevador {
         for (int i = 0; i <= precisaRemover && Filas.RS.size() > 0; i++) {
             elevador.add(Map.of("RS", Filas.RS.remove(0)));
             precisaRemover--;
+
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em RS: "
+                    + Esquiador.tempoEmFila() + " milisegundos.";
+
             if (precisaRemover == 0) break;
 
         }
@@ -109,11 +158,18 @@ public class Elevador {
         String passagensDoElevadorRounded = String.format("%.0f", passagensDoElevador);
         String taxaDeAproveitamentoRounded = String.format("%.0f", taxaDeAproveitamento);
 
-        System.out.println("Subiram: ("+ roundSizeCountRounded +")");
+        System.out.println("Entraram "+ roundSizeCountRounded +" esquiadores no elevador");
+
         System.out.println("Elevador passou: (" + elevadorResult + ")");
+
         System.out.println("Passagem do elevador de nº: " + passagensDoElevadorRounded + "");
-        System.out.println("A taxa de aproveitamento foi de: " + roundSizeCountRounded
-                + "/(4 * " + passagensDoElevadorRounded + ") * 100 = "+ taxaDeAproveitamentoRounded + "%.");
+        System.out.println("A taxa de aproveitamento foi de: (" + roundSizeCountRounded
+                + "/(4 * " + passagensDoElevadorRounded + ") * 100) = "+ taxaDeAproveitamentoRounded + "%.");
+
+        System.out.println("Tempos em fila dos esquiadores:" + tempoEmFila + "\n");
+
+        tempoEmFila = "";
+        roundSizeCount = 0.0;
 
     } else {
         setParar(true);
