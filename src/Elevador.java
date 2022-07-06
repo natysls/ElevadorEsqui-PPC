@@ -5,11 +5,14 @@ public class Elevador {
 
     static boolean isLTturn = true;
     static boolean isLSturn = true;
+
     static boolean parar = false;
-    static double roundSizeCount = 0;
+
+    static double roundSizeCount = 0.0;
+    static double passagensDoElevador = 0.0;
+    static double taxaDeAproveitamento = 0.0;
+
     static int emptySpaces = 0;
-    static double taxaDeAproveitamento;
-    static double passagensDoElevador = 0;
 
   public static void elevadorPassando() {
     ArrayList<Map<String, Esquiador>> elevador = new ArrayList<>();
@@ -100,11 +103,18 @@ public class Elevador {
                 .toList());
         roundSizeCount = roundSizeCount + elevador.size();
         passagensDoElevador++;
-        taxaDeAproveitamento = ((roundSizeCount/(4.00 * passagensDoElevador)) * 100.00);
-        System.out.println("Subiram: ("+ roundSizeCount +")");
+        taxaDeAproveitamento = ((roundSizeCount/(4 * passagensDoElevador)) * 100);
+
+        String roundSizeCountRounded = String.format("%.0f", roundSizeCount);
+        String passagensDoElevadorRounded = String.format("%.0f", passagensDoElevador);
+        String taxaDeAproveitamentoRounded = String.format("%.0f", taxaDeAproveitamento);
+
+        System.out.println("Subiram: ("+ roundSizeCountRounded +")");
         System.out.println("Elevador passou: (" + elevadorResult + ")");
-        System.out.println("Passagem do elevador de nº:" + passagensDoElevador + "");
-        System.out.println("A Taxa de aproveitamento foi de: "+ taxaDeAproveitamento +"%.");
+        System.out.println("Passagem do elevador de nº: " + passagensDoElevadorRounded + "");
+        System.out.println("A taxa de aproveitamento foi de: " + roundSizeCountRounded
+                + "/(4 * " + passagensDoElevadorRounded + ") * 100 = "+ taxaDeAproveitamentoRounded + "%.");
+
     } else {
         setParar(true);
         System.out.println("Elevador parou: ( Não tinha gente suficiente )");
