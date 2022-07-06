@@ -12,8 +12,6 @@ public class Elevador {
     static double passagensDoElevador = 0.0;
     static double taxaDeAproveitamento = 0.0;
 
-    static int emptySpaces = 0;
-
   public static void elevadorPassando() {
     ArrayList<Map<String, Esquiador>> elevador = new ArrayList<>();
 
