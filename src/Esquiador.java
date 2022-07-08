@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 
 public class Esquiador {
-    
+
     private String nome;
     static private ArrayList<Esquiador> listaEsquiadores = new ArrayList<>();
+    long tempoEntrada;
 
-    public Esquiador(String nome) {
+    public Esquiador(String nome, long tempoEntrada) {
         this.nome = nome;
+        this.tempoEntrada = tempoEntrada;
     }
 
     public static void inserirEsquiador() {
@@ -19,7 +21,7 @@ public class Esquiador {
         boolean RsLessThanLS = Filas.RS.size() <= Filas.LS.size();
 
         int posicao = listaEsquiadores.size();
-        listaEsquiadores.add(new Esquiador("Esquiador " + (posicao + 1)));
+        listaEsquiadores.add(new Esquiador("Esquiador " + (posicao + 1), System.currentTimeMillis()));
         Esquiador esquiador = listaEsquiadores.get(posicao);
 
         if (LsTwiceLessThanLT && LsTwiceLessThanRT && LsLessThanRS) {
@@ -43,7 +45,6 @@ public class Esquiador {
             System.out.println("O " + esquiador.getNome() + " entrou na fila RT " + sizes);
 
         }
-
     }
 
     public static void acabaramEsquiadores(){
@@ -55,7 +56,12 @@ public class Esquiador {
         String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
         System.out.println("Filas " + sizes);
     }
-    
+
+    public long tempoEmFila() {
+        long tempoSaida = System.currentTimeMillis();
+        return tempoSaida - this.tempoEntrada;
+    }
+
     public String getNome() {
         return nome;
     }
