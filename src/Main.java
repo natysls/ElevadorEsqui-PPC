@@ -35,7 +35,7 @@ public class Main {
                  try {
                      if(Elevador.isParar()) {
                          Esquiador.esquiadoresQueSobraramNaFila();
-                         Elevador.taxaDeAproveitamento();
+                         Elevador.taxaDeAproveitamentoETempoDeEspera();
                          timerElevador.cancel();
                      }
 

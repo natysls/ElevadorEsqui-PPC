@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 
 public class Esquiador {
-    
+
     private String nome;
     static private ArrayList<Esquiador> listaEsquiadores = new ArrayList<>();
-    static long tempoEntrada;
+    long tempoEntrada;
 
-    public Esquiador(String nome) {
+    public Esquiador(String nome, long tempoEntrada) {
         this.nome = nome;
+        this.tempoEntrada = tempoEntrada;
     }
 
     public static void inserirEsquiador() {
@@ -20,35 +21,30 @@ public class Esquiador {
         boolean RsLessThanLS = Filas.RS.size() <= Filas.LS.size();
 
         int posicao = listaEsquiadores.size();
-        listaEsquiadores.add(new Esquiador("Esquiador " + (posicao + 1)));
+        listaEsquiadores.add(new Esquiador("Esquiador " + (posicao + 1), System.currentTimeMillis()));
         Esquiador esquiador = listaEsquiadores.get(posicao);
 
         if (LsTwiceLessThanLT && LsTwiceLessThanRT && LsLessThanRS) {
             Filas.LS.add(esquiador);
-            tempoEntrada = System.currentTimeMillis();
             String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
             System.out.println("O " + esquiador.getNome() + " entrou na fila LS " + sizes);
 
         } else if (RsTwiceLessThan && RsTwiceLessThanRT && RsLessThanLS) {
             Filas.RS.add(esquiador);
-            tempoEntrada = System.currentTimeMillis();
             String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
             System.out.println("O " + esquiador.getNome() + " entrou na fila RS " + sizes);
 
         } else if (Filas.LT.size() <= Filas.RT.size()) {
             Filas.LT.add(esquiador);
-            tempoEntrada = System.currentTimeMillis();
             String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
             System.out.println("O " + esquiador.getNome() + " entrou na fila LT " + sizes);
 
         } else {
             Filas.RT.add(esquiador);
-            tempoEntrada = System.currentTimeMillis();
             String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
             System.out.println("O " + esquiador.getNome() + " entrou na fila RT " + sizes);
 
         }
-
     }
 
     public static void acabaramEsquiadores(){
@@ -61,9 +57,9 @@ public class Esquiador {
         System.out.println("Filas " + sizes);
     }
 
-    public static long tempoEmFila() {
+    public long tempoEmFila() {
         long tempoSaida = System.currentTimeMillis();
-        return tempoSaida - tempoEntrada;
+        return tempoSaida - this.tempoEntrada;
     }
 
     public String getNome() {
