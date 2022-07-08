@@ -26,22 +26,36 @@ public class Elevador {
         if (isLTturn) { // vez da esquerda
             isLTturn = false;
             elevador.add(Map.of("LT", Filas.LT.remove(0)));
-            elevador.add(Map.of("LT", Filas.LT.remove(0)));
-            elevador.add(Map.of("LT", Filas.LT.remove(0)));
-
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em LT: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
+
+            elevador.add(Map.of("LT", Filas.LT.remove(0)));
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em LT: "
+                    + Esquiador.tempoEmFila() + " ms.";
+
+            elevador.add(Map.of("LT", Filas.LT.remove(0)));
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em LT: "
+                    + Esquiador.tempoEmFila() + " ms.";
 
         } else { // vez da direita
             isLTturn = true;
             elevador.add(Map.of("RT", Filas.RT.remove(0)));
-            elevador.add(Map.of("RT", Filas.RT.remove(0)));
-            elevador.add(Map.of("RT", Filas.RT.remove(0)));
-
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em RT: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
+
+            elevador.add(Map.of("RT", Filas.RT.remove(0)));
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em RT: "
+                    + Esquiador.tempoEmFila() + " ms.";
+
+            elevador.add(Map.of("RT", Filas.RT.remove(0)));
+            tempoEmFila = tempoEmFila
+                    + "\nTempo em fila de esquiador em RT: "
+                    + Esquiador.tempoEmFila() + " ms.";
         }
 
         if (isLSturn && LShasPerson) {
@@ -50,7 +64,7 @@ public class Elevador {
 
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em LS: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
 
         } else if (RShasPerson) {
             elevador.add(Map.of("RS", Filas.RS.remove(0)));
@@ -58,19 +72,26 @@ public class Elevador {
 
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em RS: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
 
         }
 
     } else if (LThasPerson) {
         isLTturn = false;
         elevador.add(Map.of("LT", Filas.LT.remove(0)));
-        elevador.add(Map.of("LT", Filas.LT.remove(0)));
-        elevador.add(Map.of("LT", Filas.LT.remove(0)));
-
         tempoEmFila = tempoEmFila
                 + "\nTempo em fila de esquiador em LT: "
-                + Esquiador.tempoEmFila() + " milisegundos.";
+                + Esquiador.tempoEmFila() + " ms.";
+
+        elevador.add(Map.of("LT", Filas.LT.remove(0)));
+        tempoEmFila = tempoEmFila
+                + "\nTempo em fila de esquiador em LT: "
+                + Esquiador.tempoEmFila() + " ms.";
+
+        elevador.add(Map.of("LT", Filas.LT.remove(0)));
+        tempoEmFila = tempoEmFila
+                + "\nTempo em fila de esquiador em LT: "
+                + Esquiador.tempoEmFila() + " ms.";
 
         if (isLSturn && LShasPerson) {
             isLSturn = false;
@@ -78,7 +99,7 @@ public class Elevador {
 
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em LS: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
 
         } else if (RShasPerson) {
             elevador.add(Map.of("RS", Filas.RS.remove(0)));
@@ -86,19 +107,26 @@ public class Elevador {
 
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em RS: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
 
         }
 
     } else if (RThasPerson) {
         isLTturn = true;
         elevador.add(Map.of("RT", Filas.RT.remove(0)));
-        elevador.add(Map.of("RT", Filas.RT.remove(0)));
-        elevador.add(Map.of("RT", Filas.RT.remove(0)));
-
         tempoEmFila = tempoEmFila
                 + "\nTempo em fila de esquiador em LT: "
-                + Esquiador.tempoEmFila() + " milisegundos.";
+                + Esquiador.tempoEmFila() + " ms.";
+
+        elevador.add(Map.of("RT", Filas.RT.remove(0)));
+        tempoEmFila = tempoEmFila
+                + "\nTempo em fila de esquiador em LT: "
+                + Esquiador.tempoEmFila() + " ms.";
+
+        elevador.add(Map.of("RT", Filas.RT.remove(0)));
+        tempoEmFila = tempoEmFila
+                + "\nTempo em fila de esquiador em LT: "
+                + Esquiador.tempoEmFila() + " ms.";
 
         if (isLSturn && LShasPerson) {
             isLSturn = false;
@@ -106,7 +134,7 @@ public class Elevador {
 
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em LS: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
 
         } else if (RShasPerson) {
             elevador.add(Map.of("RS", Filas.RS.remove(0)));
@@ -114,7 +142,7 @@ public class Elevador {
 
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em RS: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
 
         }
 
@@ -127,7 +155,7 @@ public class Elevador {
 
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em LS: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
 
             if (precisaRemover == 0) break;
 
@@ -139,7 +167,7 @@ public class Elevador {
 
             tempoEmFila = tempoEmFila
                     + "\nTempo em fila de esquiador em RS: "
-                    + Esquiador.tempoEmFila() + " milisegundos.";
+                    + Esquiador.tempoEmFila() + " ms.";
 
             if (precisaRemover == 0) break;
 
@@ -155,26 +183,28 @@ public class Elevador {
         taxaDeAproveitamento = ((roundSizeCount/(4 * passagensDoElevador)) * 100);
 
         String roundSizeCountRounded = String.format("%.0f", roundSizeCount);
-        String passagensDoElevadorRounded = String.format("%.0f", passagensDoElevador);
-        String taxaDeAproveitamentoRounded = String.format("%.0f", taxaDeAproveitamento);
-
         System.out.println("Entraram "+ roundSizeCountRounded +" esquiadores no elevador");
 
-        System.out.println("Elevador passou: (" + elevadorResult + ")");
-
-        System.out.println("Passagem do elevador de nº: " + passagensDoElevadorRounded + "");
-        System.out.println("A taxa de aproveitamento foi de: (" + roundSizeCountRounded
-                + "/(4 * " + passagensDoElevadorRounded + ") * 100) = "+ taxaDeAproveitamentoRounded + "%.");
+        String passagensDoElevadorRounded = String.format("%.0f", passagensDoElevador);
+        System.out.println("Elevador " + passagensDoElevadorRounded + " passou: (" + elevadorResult + ")");
 
         System.out.println("Tempos em fila dos esquiadores:" + tempoEmFila + "\n");
-
         tempoEmFila = "";
-        roundSizeCount = 0.0;
 
     } else {
         setParar(true);
         System.out.println("Elevador parou: ( Não tinha gente suficiente )");
     }
+
+  }
+
+  public static void taxaDeAproveitamento(){
+      String roundSizeCountRounded = String.format("%.0f", roundSizeCount);
+      String passagensDoElevadorRounded = String.format("%.0f", passagensDoElevador);
+      String taxaDeAproveitamentoRounded = String.format("%.2f", taxaDeAproveitamento);
+
+      System.out.println("A taxa de aproveitamento foi de: (" + roundSizeCountRounded
+              + "/(4 * " + passagensDoElevadorRounded + ") * 100) = "+ taxaDeAproveitamentoRounded + "%.");
 
   }
 
