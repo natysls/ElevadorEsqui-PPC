@@ -10,7 +10,6 @@ public class Elevador {
 
     static double roundSizeCount = 0.0;
     static double passagensDoElevador = 0.0;
-//    static double taxaDeAproveitamento = 0.0;
 
     static String tempoEmFila = "";
     static long tempoTotal;
@@ -47,16 +46,19 @@ public class Elevador {
 
                 tempo("RT", Filas.RT.get(0));
                 elevador.add(Map.of("RT", Filas.RT.remove(0)));
+
             }
 
             if (isLSturn && LShasPerson) {
                 isLSturn = false;
                 tempo("LS", Filas.LS.get(0));
                 elevador.add(Map.of("LS", Filas.LS.remove(0)));
+
             } else if (RShasPerson) {
                 tempo("RS", Filas.RS.get(0));
                 elevador.add(Map.of("RS", Filas.RS.remove(0)));
                 isLSturn = true;
+
             }
 
         } else if (LThasPerson) {
@@ -124,6 +126,7 @@ public class Elevador {
                 if (precisaRemover == 0) break;
 
             }
+
         }
 
         if (elevador.size() > 0) {
@@ -145,6 +148,7 @@ public class Elevador {
         } else {
             setParar(true);
             System.out.println("Elevador parou: ( Não tinha gente suficiente )");
+
         }
 
     }
@@ -175,6 +179,7 @@ public class Elevador {
 
         System.out.println("Tempo médio: " + tempoMedio + "ms = "
                 + minutos + " minuto e " + segundos + " segundos.");
+
     }
 
     public static boolean isParar() {

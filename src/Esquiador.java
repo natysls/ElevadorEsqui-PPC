@@ -9,6 +9,7 @@ public class Esquiador {
     public Esquiador(String nome, long tempoEntrada) {
         this.nome = nome;
         this.tempoEntrada = tempoEntrada;
+
     }
 
     public static void inserirEsquiador() {
@@ -51,20 +52,24 @@ public class Esquiador {
     public static void acabaramEsquiadores(){
         String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
         System.out.println("Não existem mais esquiadores para entrar nas filas " + sizes);
+
     }
 
     public static void esquiadoresQueSobraramNaFila(){
         String sizes = "(" + Filas.LS.size() + "-" + Filas.LT.size() + "-" + Filas.RT.size() + "-" + Filas.RS.size() + ")";
         System.out.println("Filas " + sizes);
+
     }
 
     public long tempoEmFila() {
         long tempoSaida = System.currentTimeMillis();
         return tempoSaida - this.tempoEntrada;
+
     }
 
     public String getNome() {
         return nome;
+
     }
 
 }
