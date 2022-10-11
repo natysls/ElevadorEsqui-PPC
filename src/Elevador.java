@@ -189,4 +189,5 @@ public class Elevador {
     public static void setParar(boolean parar) {
         Elevador.parar = parar;
     }
+
 }
