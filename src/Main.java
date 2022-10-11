@@ -19,12 +19,15 @@ public class Main {
                              timerEsquiador.cancel();
                              break;
                          }
+
                          Esquiador.inserirEsquiador();
                          count++;
                          flag = false;
                      }
+
                  } catch (Exception e) {
                      e.printStackTrace();
+
                  }
              }
          }, 1000, 1000);
@@ -40,11 +43,14 @@ public class Main {
                      }
 
                      Elevador.elevadorPassando();
+
                  } catch (Exception e) {
                      e.printStackTrace();
+
                  }
              }
          }, 5000, 5000);
+
      }
 
 }
