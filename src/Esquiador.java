@@ -45,6 +45,7 @@ public class Esquiador {
             System.out.println("O " + esquiador.getNome() + " entrou na fila RT " + sizes);
 
         }
+
     }
 
     public static void acabaramEsquiadores(){
